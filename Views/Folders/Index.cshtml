@@ -3,5 +3,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+@model List<Folder>
+
+<div>
+    @if (@ViewBag.ParentFolderName != null)
+    {
+        <h1>"Folder": @ViewBag.ParentFolderName</h1>
+    }
+    else{
+        <a asp-controller="Folders" asp-action="ExportToFile">Export Structure</a>
+        <form method="post" enctype="multipart/form-data" asp-controller="Folders" asp-action="ImportFromFile">
+            <input type="file" name="file" />
+            <input type="submit" value="Import" />
+        </form>
+    }
+    
+    @foreach (var folder in Model)
+    {
+        <div>
+            <img src="~/img/folder.png" style="width:100px"/>
+            <a asp-controller="Folders" asp-action="Index" asp-route-id="@folder.Id">@folder.Name</a>
+
+        </div>
+        
+    }
+</div>
+
 

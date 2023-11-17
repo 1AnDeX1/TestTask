@@ -1,0 +1,42 @@
+[
+  {
+    "Id": 1,
+    "Name": "Creating Digital Images",
+    "ParentFolderId": null
+  },
+  {
+    "Id": 2,
+    "Name": "Resources",
+    "ParentFolderId": 3
+  },
+  {
+    "Id": 3,
+    "Name": "Evidence",
+    "ParentFolderId": 1
+  },
+  {
+    "Id": 4,
+    "Name": "Graphic Products",
+    "ParentFolderId": 1
+  },
+  {
+    "Id": 5,
+    "Name": "Primary Sources",
+    "ParentFolderId": 3
+  },
+  {
+    "Id": 6,
+    "Name": "Secondary Sources",
+    "ParentFolderId": 2
+  },
+  {
+    "Id": 7,
+    "Name": "Process",
+    "ParentFolderId": 2
+  },
+  {
+    "Id": 8,
+    "Name": "Final Product",
+    "ParentFolderId": 2
+  }
+]
