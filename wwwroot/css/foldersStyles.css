@@ -3,11 +3,18 @@
 }
 .my-button {
     margin: 20px 0;
-    width: 300px;
-    padding: 5px;
-    color: aliceblue;
+    border: 2px solid black;
     border-radius: 10px;
-    color: black
+    text-decoration: none;
+    width: 300px;
+    padding: 10px;
+    color: black;
+    background-color: white;
+}
+.my-button:hover {
+    text-decoration: none;
+    box-shadow: 10px 5px 5px lightgrey;
+    color: black;
 }
 .folders {
     margin: 50px 0;
@@ -24,12 +31,12 @@
     width:100px;
 }
 .import-form {
+    margin: 50px 0;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 }
 .my-a {
-    margin: 50px 0 0 0;
     border: 2px solid black;
     border-radius: 10px;
     text-decoration: none;

@@ -35,16 +35,30 @@ namespace TestTask.Controllers
         [HttpGet]
         public IActionResult ExportToFile()
         {
-            var folders = _db.Folders.ToList(); 
+            var folders = _db.Folders.ToList(); // Отримання всіх папок з бази даних
 
+            // Серіалізація в JSON
             var json = JsonConvert.SerializeObject(folders, Formatting.Indented);
 
-            var fileName = "folders.json";
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName); 
-            System.IO.File.WriteAllText(filePath, json); 
+            // Отримання фізичного шляху до папки Files
+            var filesFolderPath = Path.Combine(Directory.GetCurrentDirectory(), "Files");
 
+            // Перевірка існування папки Files
+            if (!Directory.Exists(filesFolderPath))
+            {
+                Directory.CreateDirectory(filesFolderPath); // Створення папки, якщо вона не існує
+            }
+
+            // Шлях до файлу JSON у папці Files
+            var filePath = Path.Combine(filesFolderPath, "folders.json");
+
+            // Запис у файл JSON у папці Files
+            System.IO.File.WriteAllText(filePath, json);
+
+            // Повернення повідомлення користувачеві
             return Content("Structure exported to file");
         }
+
         [HttpPost]
         public async Task<IActionResult> ImportFromFile(IFormFile file)
         {

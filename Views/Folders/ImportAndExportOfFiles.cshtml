@@ -3,7 +3,7 @@
     ViewData["Title"] = "ImportAndExportOfFiles";
 }
 
-<button asp-controller="Folders" asp-action="ExportToFile" class="my-button">Export Structure</button>
+<a asp-controller="Folders" asp-action="ExportToFile" class="my-a">Export Structure</a>
 <form method="post" enctype="multipart/form-data" asp-controller="Folders" asp-action="ImportFromFile" class="import-form">
     <input type="file" name="file" class="my-input" />
     <input type="submit" value="Import" class="my-button" />
