@@ -35,17 +35,14 @@ namespace TestTask.Controllers
         [HttpGet]
         public IActionResult ExportToFile()
         {
-            var folders = _db.Folders.ToList(); // Отримання всіх папок з бази даних
+            var folders = _db.Folders.ToList(); 
 
-            // Серіалізація в JSON
             var json = JsonConvert.SerializeObject(folders, Formatting.Indented);
 
-            // Збереження у файл JSON
-            var fileName = "folders.json"; // Назва файлу
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName); // Шлях до файлу
-            System.IO.File.WriteAllText(filePath, json); // Запис у файл
+            var fileName = "folders.json";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), fileName); 
+            System.IO.File.WriteAllText(filePath, json); 
 
-            // Повернення повідомлення користувачеві
             return Content("Structure exported to file");
         }
         [HttpPost]
@@ -54,26 +51,26 @@ namespace TestTask.Controllers
             if (file == null || file.Length == 0)
                 return Content("file not selected");
 
-            // Видалення наявних даних перед імпортом нових
-            _db.Folders.RemoveRange(_db.Folders); // Видалення всіх папок
+            _db.Folders.RemoveRange(_db.Folders); 
 
-            // Отримання тексту з файлу
             string jsonContent;
             using (var reader = new StreamReader(file.OpenReadStream()))
             {
                 jsonContent = await reader.ReadToEndAsync();
             }
 
-            // Десеріалізація JSON у список об'єктів
             var folders = JsonConvert.DeserializeObject<List<Folder>>(jsonContent);
 
-            // Додавання нових даних до бази даних
             _db.Folders.AddRange(folders);
             await _db.SaveChangesAsync();
 
             return RedirectToAction(nameof(Index));
         }
-
-
+        
+        [HttpGet]
+        public IActionResult ImportAndExportOfFiles()
+        {
+            return View();
+        }
     }
 }

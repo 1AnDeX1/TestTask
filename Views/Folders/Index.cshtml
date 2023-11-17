@@ -11,22 +11,21 @@
         <h1>"Folder": @ViewBag.ParentFolderName</h1>
     }
     else{
-        <a asp-controller="Folders" asp-action="ExportToFile">Export Structure</a>
-        <form method="post" enctype="multipart/form-data" asp-controller="Folders" asp-action="ImportFromFile">
-            <input type="file" name="file" />
-            <input type="submit" value="Import" />
-        </form>
+        <a asp-controller="Folders" asp-action="ImportAndExportOfFiles" class="my-a">Import/Export</a>
     }
-    
-    @foreach (var folder in Model)
-    {
-        <div>
-            <img src="~/img/folder.png" style="width:100px"/>
-            <a asp-controller="Folders" asp-action="Index" asp-route-id="@folder.Id">@folder.Name</a>
+    <div class="folders">
+        @foreach (var folder in Model)
+        {
+            <div class="folder">
+                <a asp-controller="Folders" asp-action="Index" asp-route-id="@folder.Id" class="folder">
+                    <img src="~/img/folder.png" class="folder-img" />
+                    @folder.Name
+                </a>
 
-        </div>
-        
-    }
+            </div>
+        }
+    </div>
+    
 </div>
 
 

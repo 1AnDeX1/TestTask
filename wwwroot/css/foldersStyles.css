@@ -1,0 +1,44 @@
+﻿body {
+    margin: 0px;
+}
+.my-button {
+    margin: 20px 0;
+    width: 300px;
+    padding: 5px;
+    color: aliceblue;
+    border-radius: 10px;
+    color: black
+}
+.folders {
+    margin: 50px 0;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.folder {
+    text-decoration: none;
+    color: black;
+    width: 150px;
+}
+.folder-img{
+    width:100px;
+}
+.import-form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.my-a {
+    margin: 50px 0 0 0;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 300px;
+    padding: 10px;
+    color: black;
+}
+.my-a:hover {
+    text-decoration: none;
+    box-shadow: 10px 5px 5px lightgrey; 
+    color: black;
+}
