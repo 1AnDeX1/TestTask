@@ -23,6 +23,8 @@
     flex-direction: row;
 }
 .folder {
+    display: flex;
+    flex-direction: column;
     text-decoration: none;
     color: black;
     width: 150px;
